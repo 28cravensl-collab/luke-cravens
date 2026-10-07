@@ -244,10 +244,10 @@ function Showcase() {
   return (
     <section id="sauces" className="relative min-h-[100svh] px-5 py-28 md:px-10">
       <div className="grid gap-10 md:grid-cols-2">
-        <div className="relative z-10 md:col-span-2 md:flex md:items-end md:justify-between md:gap-10">
+        <div className="relative z-10 md:col-start-2">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-ember">The lineup · 5 fl oz jars</p>
           <h2 className="mt-3 font-display text-6xl font-black uppercase leading-[0.85] md:text-8xl">Pick your<br /><span className="text-flame">fire.</span></h2>
-          <p className="mt-5 max-w-sm text-bone/70 md:mt-0">Tap a sauce to see it in the jar. Heat is measured in Scoville heat units (SHU) of the main pepper.</p>
+          <p className="mt-5 max-w-sm text-bone/70">Tap a sauce to see it in the jar. Heat is measured in Scoville heat units (SHU) of the main pepper.</p>
         </div>
 
         <ul className="relative z-10 flex flex-col gap-3 md:col-start-2">
@@ -469,6 +469,14 @@ function useScrollStory(canvasWrap) {
         gsap.from(ch.querySelector(".chapter-copy"), {
           y: 120, opacity: 0, rotate: i % 2 ? -3 : 3, ease: "power3.out",
           scrollTrigger: { trigger: ch, start: "top 75%", end: "top 25%", scrub: 1 },
+        });
+      });
+
+      // On phones the jar sits behind the copy, so dim it once the hero is gone.
+      gsap.matchMedia().add("(max-width: 767px)", () => {
+        gsap.to(canvasWrap.current, {
+          opacity: 0.3, ease: "none",
+          scrollTrigger: { trigger: "#story", start: "top 80%", end: "top 20%", scrub: true },
         });
       });
 
