@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AXON R1 — The Electric Hypercar</title>
+  <meta name="description" content="AXON R1: a concept electric hypercar. Scroll to take it for a drive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Reusable car graphic -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" style="stop-color:var(--car-hi)" />
+        <stop offset="0.55" style="stop-color:var(--car)" />
+        <stop offset="1" stop-color="#05070c" />
+      </linearGradient>
+      <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#9fe8ff" stop-opacity=".55" />
+        <stop offset="1" stop-color="#0a1020" stop-opacity=".95" />
+      </linearGradient>
+      <radialGradient id="rimGrad">
+        <stop offset="0" stop-color="#2a3140" />
+        <stop offset="1" stop-color="#0b0e15" />
+      </radialGradient>
+      <filter id="glow" x="-50%" y="-200%" width="200%" height="500%">
+        <feGaussianBlur stdDeviation="4" result="b" />
+        <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter>
+      <g id="wheel">
+        <circle r="46" fill="#05060a" />
+        <circle r="36" fill="url(#rimGrad)" stroke="#3a4456" stroke-width="2" />
+        <g style="stroke:var(--accent)" stroke-width="3" stroke-linecap="round" opacity=".9">
+          <line x1="0" y1="-32" x2="0" y2="32" />
+          <line x1="-32" y1="0" x2="32" y2="0" />
+          <line x1="-22.6" y1="-22.6" x2="22.6" y2="22.6" />
+          <line x1="-22.6" y1="22.6" x2="22.6" y2="-22.6" />
+        </g>
+        <circle r="9" fill="#11151f" style="stroke:var(--accent)" stroke-width="2" />
+      </g>
+      <g id="car">
+        <ellipse cx="410" cy="246" rx="360" ry="14" fill="#000" opacity=".55" />
+        <path class="car-body" fill="url(#bodyGrad)"
+          d="M52 200 L58 168 Q70 146 150 136 L292 104 Q380 70 470 70 Q566 74 650 120 L736 140 Q770 148 772 178 L768 204
+             L668 206 A62 62 0 0 0 548 206 L252 206 A62 62 0 0 0 132 206 Z" />
+        <path fill="url(#glassGrad)" d="M318 108 Q388 82 466 82 Q538 86 604 124 L336 128 Z" />
+        <path d="M468 84 L474 126" stroke="#0a0f1a" stroke-width="5" />
+        <path class="car-line" d="M70 172 L300 150 L560 148 L760 166" fill="none" style="stroke:var(--accent)" stroke-width="1.5" opacity=".55" />
+        <path class="headlight" d="M706 150 L768 160" style="stroke:var(--accent)" stroke-width="5" stroke-linecap="round" filter="url(#glow)" />
+        <path class="taillight" d="M56 170 L118 164" stroke="#ff2d55" stroke-width="5" stroke-linecap="round" filter="url(#glow)" />
+        <g class="wheel wheel-rear" transform="translate(192 206)"><g style="transform:rotate(var(--spin,0deg))"><use href="#wheel" /></g></g>
+        <g class="wheel wheel-front" transform="translate(608 206)"><g style="transform:rotate(var(--spin,0deg))"><use href="#wheel" /></g></g>
+      </g>
+    </defs>
+  </svg>
+
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a class="logo" href="#top">AX<span>O</span>N</a>
+    <nav>
+      <a href="#drive">Drive</a>
+      <a href="#tech">Tech</a>
+      <a href="#specs">Specs</a>
+      <a href="#build">Build</a>
+    </nav>
+    <a class="btn btn-small" href="#reserve">Reserve</a>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="grid-floor" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <p class="eyebrow hero-line">Concept // 2030 // Fully electric</p>
+      <h1 class="hero-title" aria-label="AXON R1">
+        <span>A</span><span>X</span><span>O</span><span>N</span><span class="r1">R1</span>
+      </h1>
+      <p class="hero-sub hero-line">Engineered at the edge of physics.</p>
+      <svg class="hero-car" viewBox="0 0 820 270" role="img" aria-label="Side view of the AXON R1"><use href="#car" /></svg>
+      <div class="scroll-hint hero-line">Scroll to ignite <span></span></div>
+    </section>
+
+    <!-- PINNED DRIVE SEQUENCE -->
+    <section class="drive" id="drive">
+      <div class="drive-stage">
+        <div class="speed-lines" aria-hidden="true"></div>
+        <div class="drive-road" aria-hidden="true"></div>
+        <div class="drive-copy">
+          <div class="drive-step"><span class="num">01</span><h2>Ignite.</h2><p>Silent. Instant. Four motors wake in 11 milliseconds.</p></div>
+          <div class="drive-step"><span class="num">02</span><h2>Launch.</h2><p>0–100 km/h in 1.8 seconds. Your spine will file a complaint.</p></div>
+          <div class="drive-step"><span class="num">03</span><h2>Transcend.</h2><p>Active aero bends 2,100 kg of downforce out of thin air.</p></div>
+        </div>
+        <div class="speedo" aria-hidden="true">
+          <span class="speedo-val">0</span><span class="speedo-unit">km/h</span>
+        </div>
+        <svg class="drive-car" viewBox="0 0 820 270" aria-hidden="true"><use href="#car" /></svg>
+      </div>
+    </section>
+
+    <!-- HORIZONTAL TECH -->
+    <section class="tech" id="tech">
+      <div class="tech-track">
+        <div class="tech-intro">
+          <p class="eyebrow">Technology</p>
+          <h2>Built from<br />tomorrow.</h2>
+          <p>Every panel, cell and line of code exists to move you faster with less.</p>
+        </div>
+        <article class="tech-card">
+          <div class="tech-icon">⚡</div>
+          <h3>Solid-state core</h3>
+          <p>A 150 kWh solid-state pack charges 10–80% in six minutes and outlasts the chassis.</p>
+          <span class="tech-tag">1,200 km range</span>
+        </article>
+        <article class="tech-card">
+          <div class="tech-icon">◎</div>
+          <h3>Neural drive</h3>
+          <p>An onboard AI reads the road 400 metres ahead and pre-loads every suspension corner.</p>
+          <span class="tech-tag">Lvl 5 ready</span>
+        </article>
+        <article class="tech-card">
+          <div class="tech-icon">△</div>
+          <h3>Morphing aero</h3>
+          <p>Shape-memory carbon panels reshape the body in flight — slippery on straights, glued in corners.</p>
+          <span class="tech-tag">Cd 0.17</span>
+        </article>
+        <article class="tech-card">
+          <div class="tech-icon">◇</div>
+          <h3>Graphene shell</h3>
+          <p>A monocoque lighter than aluminium, stronger than steel, and fully recyclable.</p>
+          <span class="tech-tag">1,190 kg</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- SPECS -->
+    <section class="specs" id="specs">
+      <p class="eyebrow reveal">By the numbers</p>
+      <h2 class="reveal">Absurd, on purpose.</h2>
+      <div class="stats">
+        <div class="stat reveal"><span class="stat-num" data-to="1.8" data-dec="1">0</span><span class="stat-unit">s</span><p>0–100 km/h</p></div>
+        <div class="stat reveal"><span class="stat-num" data-to="2040">0</span><span class="stat-unit">hp</span><p>Peak output</p></div>
+        <div class="stat reveal"><span class="stat-num" data-to="412">0</span><span class="stat-unit">km/h</span><p>Top speed</p></div>
+        <div class="stat reveal"><span class="stat-num" data-to="1200">0</span><span class="stat-unit">km</span><p>Range</p></div>
+      </div>
+    </section>
+
+    <!-- CONFIGURATOR -->
+    <section class="build" id="build">
+      <div class="build-copy">
+        <p class="eyebrow reveal">Configure</p>
+        <h2 class="reveal">Make it yours.</h2>
+        <p class="reveal">Pick a finish. The light follows.</p>
+        <div class="swatches reveal" role="radiogroup" aria-label="Paint finish">
+          <button class="swatch active" role="radio" aria-checked="true" data-car="#1b2a44" data-hi="#4d6fa8" data-accent="#00e5ff" style="--c:#2b4a7a" aria-label="Cobalt Night"></button>
+          <button class="swatch" role="radio" aria-checked="false" data-car="#3a0b16" data-hi="#b8213f" data-accent="#ff2d55" style="--c:#b8213f" aria-label="Plasma Red"></button>
+          <button class="swatch" role="radio" aria-checked="false" data-car="#1c1f24" data-hi="#9aa3ad" data-accent="#c6ff00" style="--c:#9aa3ad" aria-label="Lunar Silver"></button>
+          <button class="swatch" role="radio" aria-checked="false" data-car="#24103a" data-hi="#8a4dff" data-accent="#ff6bf2" style="--c:#8a4dff" aria-label="Nebula Violet"></button>
+        </div>
+        <p class="swatch-name">Cobalt Night</p>
+      </div>
+      <div class="build-visual">
+        <div class="turntable" aria-hidden="true"></div>
+        <svg class="build-car" viewBox="0 0 820 270" role="img" aria-label="AXON R1 in the selected finish"><use href="#car" /></svg>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="reserve" id="reserve">
+      <h2 class="reserve-title">The future<br /><em>doesn't wait.</em></h2>
+      <p class="reveal">Production limited to 300 units. Deliveries begin 2030.</p>
+      <a class="btn reveal" href="#top">Reserve your R1</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 AXON Motors — a concept.</span>
+    <span>Designed for the road ahead.</span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
